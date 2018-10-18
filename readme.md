@@ -18,12 +18,13 @@
 * alors
   * ecriture du commentaire dans le fichier FileCopyFile.save
   * ecriture du commentaire dans le fichier readme.md
-  * sinon si l'enregistrement contient un des delimiteurs
+* sinon si l'enregistrement contient un des delimiteurs
   * alors
     * ecriture du commentaire dans le fichier readme.md
   * sinon
     * ecriture de l'enregistrement dans le fichier de sauvegarde FileCopyFile.save
-####
+  * fin si
+* fin si
 #### Fermeture du fichier FileCopyFile.java
 #### Fermeture du fichier FileCopyFile.save
 #### Fermeture du fichier readme.md
