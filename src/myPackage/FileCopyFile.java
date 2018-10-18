@@ -1,0 +1,90 @@
+package myPackage;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+ // Le but : copier un fichier (lecture) en entree vers un fichier (ecriture) en sortie
+ //
+ // Exercice : Sauvegarder le programme FileCopyFile.java 
+ //            Generer le fichier readme.md a partir des differents commentaires du programme FileCopyFile.java
+public class FileCopyFile 
+{
+	public static void copyFile(String filenameFrom, String filenameTo, String filenameTo1) throws IOException 
+	{	
+		//
+		// Ouverture du fichier FileCopyFile.java en lecture
+		BufferedReader br = new BufferedReader(new FileReader(new File(filenameFrom)));
+
+		// Ouverture du fichier FileCopyFile.save en ecriture
+		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filenameTo)));
+		
+		// Ouverture du fichier readme.md en ecriture
+		BufferedWriter bw1 = new BufferedWriter(new FileWriter(new File(filenameTo1)));
+
+		String ligne;
+		
+		//
+		// Initialisations des delimiteurs de commentaires
+		String delimiter = "/" + "*";
+
+		//
+		// Boucle sur le fichier en entree tant qu'il y a un enregistrement
+		while((ligne = br.readLine()) != null) 
+		{	
+			// si l'enregistrement debute avec deux slash
+			// apres suppression des espaces d'entete
+			// alors
+			if (ligne.trim().startsWith("//"))
+			{
+				// ecriture du commentaire dans le fichier FileCopyFile.save
+				bw.write(ligne + "\n");
+				
+				// ecriture du commentaire dans le fichier readme.md
+				bw1.write(ligne.replace("//", "####") + "\n");
+			}
+			
+			else if (ligne.contains(delimiter)) 
+			{
+				// sinon si l'enregistrement contient un des delimiteurs
+				// alors
+					// ecriture du commentaire dans le fichier readme.md
+				while(!((br.readLine()).contains("*/"))) 
+				{
+					bw1.write(ligne.replace("//", "####") + "\n");
+				}
+			}
+			
+			else 
+			{
+				// sinon
+					// ecriture de l'enregistrement dans le fichier de sauvegarde FileCopyFile.save
+				bw.write(ligne + "\n");
+			}
+		}
+		//
+		// Fermeture du fichier FileCopyFile.java
+		br.close();
+		
+		// Fermeture du fichier FileCopyFile.save
+		bw.close();
+		
+		// Fermeture du fichier readme.md
+		bw1.close();
+	}
+
+	public static void main(String[] args) throws IOException
+	{
+		//
+		// lancement de la methode copyFile en passant en arguments
+		// le fichier en entree en acces lecture  de FileCopyFile.java
+		// le fichier en sortie en acces ecriture de FileCopyFile.save
+		// le fichier en sortie en acces ecriture de readme.md
+		copyFile(	System.getProperty("user.dir") + "/src//myPackage//FileCopyFile.java", 
+					System.getProperty("user.dir") + "/src//myPackage//FileCopyFile.save",
+					System.getProperty("user.dir") + "//readme.md");
+	}
+}
