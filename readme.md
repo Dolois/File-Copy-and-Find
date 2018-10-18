@@ -13,13 +13,13 @@
 #### Initialisations des delimiteurs de commentaires
 
 #### Boucle sur le fichier en entree tant qu'il y a un enregistrement
-#### si l'enregistrement debute avec deux slash
-#### apres suppression des espaces d'entete
-#### alors
-#### ecriture du commentaire dans le fichier FileCopyFile.save
-#### ecriture du commentaire dans le fichier readme.md
-#### sinon si l'enregistrement contient un des delimiteurs
-#### alors
+#### * si l'enregistrement debute avec deux slash
+#### * apres suppression des espaces d'entete
+#### * alors
+#### *** ecriture du commentaire dans le fichier FileCopyFile.save
+#### *** ecriture du commentaire dans le fichier readme.md
+#### * sinon si l'enregistrement contient un des delimiteurs
+#### *** alors
 #### ecriture du commentaire dans le fichier readme.md
 #### sinon
 #### ecriture de l'enregistrement dans le fichier de sauvegarde FileCopyFile.save
