@@ -44,7 +44,7 @@ public class FileCopyFile
 				bw.write(ligne + "\n");
 				
 				// ecriture du commentaire dans le fichier readme.md
-				bw1.write(ligne.replace("//", "####") + "\n");
+				bw1.write(ligne.trim().replace("//", "####") + "\n");
 			}
 			
 			else if (ligne.contains(delimiter)) 
@@ -54,7 +54,7 @@ public class FileCopyFile
 					// ecriture du commentaire dans le fichier readme.md
 				while(!((br.readLine()).contains("*/"))) 
 				{
-					bw1.write(ligne.replace("//", "####") + "\n");
+					bw1.write(ligne.trim().replace("//", "####") + "\n");
 				}
 			}
 			
