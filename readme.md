@@ -3,9 +3,6 @@
 #### Exercice : Sauvegarder le programme FileCopyFile.java
 ####            Generer le fichier readme.md a partir des differents commentaires du programme FileCopyFile.java
 ####
-#### Exercice : Sauvegarder le programme FileCopyFile.java 
-####            Generer le fichier readme.md a partir des differents commentaires du programme FileCopyFile.java
-####
 #### Ouverture du fichier FileCopyFile.java en lecture
 #### Ouverture du fichier FileCopyFile.save en ecriture
 #### Ouverture du fichier readme.md en ecriture
